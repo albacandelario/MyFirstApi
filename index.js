@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+require('dotenv');
 
 const myFirstController = require('./controllers/myFirstController');  //l'hem importat
 
