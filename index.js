@@ -7,6 +7,6 @@ app.get('/', myFirstController.helloWorld);  //important no posar els parèntesi
 
 //ja tenim la ruta definida
 
-app.listen(3000, () => {
+app.listen(process.env.PORT || 3000, () => {
     console.log('My first API running');
 });
