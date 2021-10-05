@@ -4,7 +4,9 @@ require('dotenv');
 
 const myFirstController = require('./controllers/myFirstController');  //l'hem importat
 
-app.get('/', myFirstController.helloWorld);  //important no posar els parèntesis de la funció helloworld perquè no volem que s'executi directament, numés quan l'usuari vagi a la ruta.
+// app.get('/', myFirstController.helloWorld);  //important no posar els parèntesis de la funció helloworld perquè no volem que s'executi directament, numés quan l'usuari vagi a la ruta.
+
+app.get('/', myFirstController.exercici3);
 
 //ja tenim la ruta definida
 
