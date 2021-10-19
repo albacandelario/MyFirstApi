@@ -22,9 +22,9 @@ module.exports = {
         res.status(status.ok).send(users);
     },
 
-    profile: () => {
+    profile: (req, res) => {
         // Petició a la bbdd per obtenir dades d'un user
-        //console.log(req.params);
+        console.log(req.params);
         const user = users.find((user) => user.id == req.params.userId);
         if (user) {
             res.status(status.ok).send(user);
