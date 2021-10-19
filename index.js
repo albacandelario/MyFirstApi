@@ -12,6 +12,8 @@ app.get('/', myFirstController.exercici3);
 
 app.use('/api/v1/user', require('./routes/userRoutes'));
 
+app.use('/api/v1/s04-05', require('./routes/s04-05Routes'))
+
 //ja tenim la ruta definida
 
 app.listen(process.env.PORT || 3000, () => {
