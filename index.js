@@ -10,6 +10,8 @@ const myFirstController = require('./controllers/myFirstController');  //l'hem i
 
 app.get('/', myFirstController.exercici3);
 
+app.use('/api/v1/user', require('./routes/userRoutes'));
+
 //ja tenim la ruta definida
 
 app.listen(process.env.PORT || 3000, () => {
