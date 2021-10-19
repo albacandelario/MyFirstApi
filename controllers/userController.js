@@ -25,7 +25,7 @@ module.exports = {
     profile: () => {
         // Petició a la bbdd per obtenir dades d'un user
         //console.log(req.params);
-        const user = users.find((user) => user.id === req.params.userId);
+        const user = users.find((user) => user.id == req.params.userId);
         if (user) {
             res.status(status.ok).send(user);
         } else {
