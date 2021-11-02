@@ -1,24 +1,20 @@
-const status = {
-    ok: 200,
-    notFound: 404,
-    badRquest: 400,
-};
+const c = require('../config/constants')
 
 module.exports = {
     fechaMs: (req, res) => {
         // let fecha = `${new Date().getTime()} ms`;
         let fecha = new Date().getTime();
-        res.status(status.ok).send({ dataActual: fecha });
+        res.status(c.status.ok).send({ dataActual: fecha });
     },
 
     fechaGuiones: (req, res) => {
         let fecha = `${new Date().getDate()}-${new Date().getMonth() + 1}-${new Date().getFullYear()}`;
-        res.status(status.ok).send({ dataActual: fecha });
+        res.status(c.status.ok).send({ dataActual: fecha });
     },
 
     fechaPuntos: (req, res) => {
         let fecha = `${new Date().getHours()}:${new Date().getMinutes()}:${new Date().getSeconds()}`;
-        res.status(status.ok).send({ dataActual: fecha });
+        res.status(c.status.ok).send({ dataActual: fecha });
     },
 
     multiplicar: (req, res) => {
@@ -29,9 +25,9 @@ module.exports = {
             for (let i = 0; i <= 10; i++) {
                 tabla.push(`${i} x ${input} = ${input * i}`)
             }
-            res.status(status.ok).send({ Tabla: tabla });
+            res.status(c.status.ok).send({ Tabla: tabla });
         } else {
-            res.status(status.badRquest).send("Debes introducir un número del 2 al 5!!");
+            res.status(c.status.badRquest).send("Debes introducir un número del 2 al 5!!");
         }
     },
 
@@ -39,7 +35,7 @@ module.exports = {
         const input = req.query.input;
 
         if (isNaN(input)) {
-            res.status(status.badRquest).send("No has escrito un número!");
+            res.status(c.status.badRquest).send("No has escrito un número!");
         } else if ((input % 1) === 0) {
             let result = `${input}`;
             let resultNum = input;
@@ -48,9 +44,9 @@ module.exports = {
                 resultNum *= i;
             }
             result += ` = ${resultNum}`;
-            res.status(status.ok).send({ Factorial: result });
+            res.status(c.status.ok).send({ Factorial: result });
         } else {
-            res.status(status.badRquest).send("No has escrito un número entero!");
+            res.status(c.status.badRquest).send("No has escrito un número entero!");
         }
     },
 
