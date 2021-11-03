@@ -1,4 +1,4 @@
-const c = require('../config/constants')
+const c = require('../config/constants');
 
 module.exports = {
     fechaMs: (req, res) => {

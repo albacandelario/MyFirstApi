@@ -12,7 +12,9 @@ app.get('/', myFirstController.exercici3);
 
 app.use('/api/v1/user', require('./routes/userRoutes'));
 
-app.use('/api/v1/s04-05', require('./routes/s04-05Routes'))
+app.use('/api/v1/s04-05', require('./routes/s04-05Routes'));
+
+app.use('/api/v1/s06', require('./routes/s06Routes'));
 
 //ja tenim la ruta definida
 
