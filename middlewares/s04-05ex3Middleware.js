@@ -36,6 +36,4 @@ module.exports.checkAll = (req, res, next) => {
             message: '"num" param not integer'
         });
     }
-
-
 }

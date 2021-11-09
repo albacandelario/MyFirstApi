@@ -16,7 +16,7 @@ module.exports.checkNumMajorOne = (req, res, next) => {
 
 module.exports.checkej02 = (req, res, next) => {
     if (req.body.string !== 'mi-caja-fuerte') {
-        res.status(c.status.badRquest).send({ Message: 'String not introduced!' });
+        res.status(c.status.badRquest).send({ Message: 'String not introduced correctly!' });
     } else {
         req.body.num = Number(req.body.num);
         if (!Number.isNaN(req.body.num)) {

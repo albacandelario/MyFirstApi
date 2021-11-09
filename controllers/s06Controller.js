@@ -14,5 +14,5 @@ module.exports = {
         });
 
         res.status(c.status.ok).send({ Result: result });
-    }
+    },
 }
