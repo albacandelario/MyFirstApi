@@ -7,5 +7,4 @@ module.exports.createUserSchema = Joi.object({
     username: Joi.string().alphanum().min(3).max(20),
     mail: Joi.string().email().min(5).max(30),
     password: Joi.string().regex(/^[a-zA-Z0-9]{3,30}$/).required(),
-    repeat_password: Joi.string().equal(password),
 });

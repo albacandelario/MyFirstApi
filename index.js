@@ -2,6 +2,9 @@ const express = require('express');
 const app = express();
 require('dotenv').config();
 const cors = require('cors');
+const connect = require('./database/connect');
+
+connect.createConnection();
 
 const myFirstController = require('./controllers/myFirstController');  //l'hem importat
 
@@ -22,6 +25,8 @@ app.use('/api/v1/s04-05', require('./routes/s04-05Routes'));
 app.use('/api/v1/s06', require('./routes/s06Routes'));
 
 app.use('/api/v1/s07', require('./routes/s07Routes'));
+
+
 
 //ja tenim la ruta definida
 
