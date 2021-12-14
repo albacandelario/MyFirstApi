@@ -2,7 +2,7 @@ const c = require('../config/constants');
 
 module.exports = {
     ej01: (req, res) => {
-        res.status(c.status.ok).send({ Number: (Math.random() * (req.query.num - 1) + 1) })
+        res.status(c.status.ok).send({ Number: Math.floor(Math.random() * (req.query.num - 1)) + 1 })
     },
 
     ej02: (req, res) => {

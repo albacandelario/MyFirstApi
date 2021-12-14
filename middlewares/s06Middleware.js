@@ -12,7 +12,7 @@ module.exports.checkNumMajorOne = (req, res, next) => {
     } else {
         res.status(c.status.badRquest).send({ Message: 'Num not a number' });
     }
-}
+};
 
 module.exports.checkej02 = (req, res, next) => {
     if (req.body.string !== 'mi-caja-fuerte') {
@@ -25,4 +25,4 @@ module.exports.checkej02 = (req, res, next) => {
             res.status(c.status.badRquest).send({ Message: 'Not a number' });
         }
     }
-}
+};
