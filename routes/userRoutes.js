@@ -11,4 +11,9 @@ router.post('/create',
     joiMiddleware.validate(userSchemas.createUserSchema, 'body'),
     userController.create);
 
+router.get('/details/:id',
+    joiMiddleware.validate(userSchemas.selectUserSchema, 'params'),
+    userController.selectById
+);
+
 module.exports = router;

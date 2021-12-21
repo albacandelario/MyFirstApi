@@ -1,4 +1,5 @@
 const Joi = require('@hapi/joi');
+Joi.objectId = require('joi-objectid')(Joi);
 
 module.exports.createUserSchema = Joi.object({
     name: Joi.string().alphanum().min(3).max(20).required(),
@@ -7,4 +8,8 @@ module.exports.createUserSchema = Joi.object({
     username: Joi.string().alphanum().min(3).max(20),
     mail: Joi.string().email().min(5).max(30),
     password: Joi.string().regex(/^[a-zA-Z0-9]{3,30}$/).required(),
+});
+
+module.exports.selectUserSchema = Joi.object({
+    id: Joi.objectId().required(),
 });

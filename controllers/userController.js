@@ -5,6 +5,7 @@
 //}
 
 const c = require('../config/constants');
+const userService = require('../services/userService');
 
 const users = [
     {id: 1, name: 'john'}, 
@@ -39,5 +40,27 @@ module.exports = {
         users.push(user);
 
         res.status(c.status.created).send(user);
+    },
+
+    selectById: async (req, res) => {
+        const response = { status: c.status.serverError, msg: 'Internal server error' };
+        try {
+            const userId = req.params.id;
+            const resFromService = await userService.selectById(userId);
+            if (resFromService.status) {
+                if (resFromService.result) {
+                    response.status = c.status.ok;
+                    response.msg = 'User found';
+                    response.body = resFromService.result;
+                } else {
+                    response.status = c.status.notFound;
+                    response.msg = 'User not found';
+                }
+            }
+        } catch (err) {
+            console.log('ERROR-userController-selectById: ', err);
+            response.error = err;
+        }
+        res.status(response.status).send(response);
     },
 };

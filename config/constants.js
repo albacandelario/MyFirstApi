@@ -4,6 +4,7 @@ module.exports = {
         notFound: 404,
         badRquest: 400,
         created: 201,
+        serverError: 500,
     },
     moviles: [],
 };
