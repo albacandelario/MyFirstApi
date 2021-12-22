@@ -22,3 +22,28 @@ module.exports.selectById = async (userId) => {
     }
     return response;
 }
+
+module.exports.selectAll = async (queryParams, pagination) => {
+    const response = { status: false };
+    try {
+        const data = {
+            findQuery: queryParams,
+            model: User,
+            projection: {
+                // Per no mostrar
+            }
+        };
+        if (pagination.skip && pagination.limit) {
+            data.skip = pagination.skip;
+            data.limit = pagination.limit;
+        };
+        const resFromRepo = await repository.selectAll(data);
+        if (resFromRepo.status) {
+            response.result = resFromRepo.result;
+            response.status = true;
+        };
+    } catch (err) {
+        console.log('ERROR-userService-selectAll: ', err);
+    }
+    return response;
+}

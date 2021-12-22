@@ -13,3 +13,10 @@ module.exports.createUserSchema = Joi.object({
 module.exports.selectUserSchema = Joi.object({
     id: Joi.objectId().required(),
 });
+
+module.exports.selectAllSchema = Joi.object({
+    active: Joi.boolean().optional(),
+    skip: Joi.number().integer().optional(),
+    limit: Joi.number().integer().optional(),
+}).and('skip', 'limit'); // Si el skip existeix, l'altre també
+

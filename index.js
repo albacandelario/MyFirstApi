@@ -26,7 +26,7 @@ app.use('/api/v1/s06', require('./routes/s06Routes'));
 
 app.use('/api/v1/s07', require('./routes/s07Routes'));
 
-
+app.use('/api/v1/films', require('./routes/s10Routes'));
 
 //ja tenim la ruta definida
 

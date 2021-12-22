@@ -63,4 +63,30 @@ module.exports = {
         }
         res.status(response.status).send(response);
     },
+
+    selectAll: async (req, res) => {
+        const response = { status: c.status.serverError, msg: 'Internal server error' };
+        try {
+            const queryParams = {};
+            if (req.query.active) queryParams.active = req.query.active;
+            const pagination = {};
+            if (req.query.skip) pagination.skip = +req.query.skip;
+            if (req.query.limit) pagination.limit = +req.query.limit;
+            const resFromService = await userService.selectAll(queryParams, pagination);
+            if (resFromService.status) {
+                if (resFromService.result) {
+                    response.status = c.status.ok;
+                    response.msg = 'Users found';
+                    response.body = resFromService.result;
+                } else {
+                    response.status = c.status.notFound;
+                    response.msg = 'Users not found';
+                }
+            }
+        } catch (err) {
+            console.log('ERROR-userController-selectAll: ', err);
+            response.error = err;
+        }
+        res.status(response.status).send(response);
+    },
 };
